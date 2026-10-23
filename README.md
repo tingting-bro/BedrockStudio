@@ -79,6 +79,7 @@ python updeta.py
 
 ## 项目结构
 
+
 ```text
 BedrockStudio/
 ├─ start.py                       # 启动入口
@@ -92,6 +93,7 @@ BedrockStudio/
 │  └─ README.md                   # 详细功能与操作说明
 └─ LICENSE
 ```
+
 
 运行时在工作目录保存 `settings.json`（用户设置）、`temp.json`（最近记录等状态）和 `data/render-resources/`（下载资源缓存）。这些内容、依赖目录、构建产物、本地上传脚本 `updeta.py` 以及整个 `_references/` 目录不提交到仓库。源码仓库不包含已编译安装包。
 
