@@ -3,7 +3,7 @@
   "edition": "Studio",
   "caption": "存档编辑器",
   "description": "本地世界编辑器",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "channel": "Beta",
   "packaging": {
     "executable_name": "BedrockStudio",
