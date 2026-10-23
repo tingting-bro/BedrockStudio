@@ -34,6 +34,7 @@ export default function App() {
   const [preferencesReady, setPreferencesReady] = useState(false);
   const [preferencesError, setPreferencesError] = useState("");
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [openSourceNoticeOpen, setOpenSourceNoticeOpen] = useState(true);
   useEffect(() => {
     let active = true;
     api<Preferences>("/preferences")
@@ -143,6 +144,25 @@ export default function App() {
         }}
       />
       <Toaster theme="light" position="bottom-right" richColors closeButton />
+      <Dialog open={preferencesReady && openSourceNoticeOpen} onOpenChange={setOpenSourceNoticeOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Bedrock Studio 是开源项目</DialogTitle>
+            <DialogDescription>
+              本项目以开源方式发布，欢迎查看源码、反馈问题并参与改进。
+            </DialogDescription>
+          </DialogHeader>
+          <p>
+            项目源码与许可证信息：{" "}
+            <a href="https://github.com/tingting-bro/BedrockStudio" target="_blank" rel="noreferrer">
+              github.com/tingting-bro/BedrockStudio
+            </a>
+          </p>
+          <DialogFooter>
+            <Button onClick={() => setOpenSourceNoticeOpen(false)}>知道了</Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
       <Dialog
         open={windowCloseRequested && (!document || mode === null)}
         onOpenChange={(open) => {

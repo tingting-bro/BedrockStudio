@@ -39,7 +39,10 @@ log = logging.getLogger(__name__)
 
 
 def allow_origin() -> bool:
-    return os.environ.get("BEDROCK_EDITOR_ALLOW_ORIGIN_DOWNLOAD", "0") == "1"
+    # Official endpoints are the recovery path after the configured mirrors.
+    # Keep the environment switch as a compatibility override for deployments
+    # that explicitly need to prohibit origin traffic.
+    return os.environ.get("BEDROCK_EDITOR_ALLOW_ORIGIN_DOWNLOAD", "1") != "0"
 
 
 def origin_host(host: str | None) -> bool:
