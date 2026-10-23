@@ -1,0 +1,35 @@
+# Local workspace and editor state
+/.codex/
+.idea/
+.vscode/
+/settings.json
+/temp.json
+/data/
+/code/resource_packs/minecraft/amulet/
+
+# Dependencies and build outputs
+node_modules/
+dist/
+/build/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+*.tsbuildinfo
+*.log
+
+# Credentials and local environments
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+
+# Local reference downloads and archives
+/_references/repos/
+/_references/legacy-python-environment/
+/_references/project_metadata/
+/_references/*.zip
+/_references/*.7z
+/_references/*.tar.gz

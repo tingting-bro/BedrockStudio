@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bedrock-level-editor"
+dynamic = ["version"]
+description = "A local Minecraft Bedrock level.dat editor"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115,<1",
+    "uvicorn>=0.30,<1",
+    "nbtlib==2.0.4",
+    "numpy>=1.26,<2",
+    "amulet-core==1.9.43",
+    "amulet-nbt==2.1.8",
+    "PyMCTranslate==1.2.46",
+    "minecraft-resource-pack==1.4.11",
+    "Pillow>=10,<13",
+    "pywebview>=5,<7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "httpx>=0.27", "ruff>=0.15,<1", "websocket-client>=1.8,<2"]
+assets = ["Pillow>=10,<13"]
+build = ["Nuitka==4.3.1", "ordered-set>=4.1,<5", "zstandard>=0.23,<1"]
+
+[tool.setuptools]
+package-dir = {"" = "backend/src"}
+
+[tool.setuptools.dynamic]
+version = {attr = "bedrock_editor.constants.APP_VERSION"}
+
+[tool.setuptools.packages.find]
+where = ["backend/src"]
+include = ["bedrock_editor*"]
+
+[tool.setuptools.package-data]
+bedrock_editor = ["*.cjs", "*.txt", "block_states.json", "app_constants.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["../_references/tests"]
+cache_dir = "../_references/.pytest_cache"
+norecursedirs = ["repos", "node_modules"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+cache-dir = "../_references/.ruff_cache"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "UP", "B"]
+
