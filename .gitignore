@@ -26,10 +26,6 @@ __pycache__/
 .venv/
 venv/
 
-# Local reference downloads and archives
-/_references/repos/
-/_references/legacy-python-environment/
-/_references/project_metadata/
-/_references/*.zip
-/_references/*.7z
-/_references/*.tar.gz
+# Local upload helper and references
+/updeta.py
+/_references/
